@@ -10,7 +10,7 @@
 :root{--navy:#071a52;--yellow:#ffd23f;--pink:#ff3d8d;--green:#30cf76;--ink:#10233f}
 *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#fff;min-height:100vh;background:radial-gradient(circle at 15% 10%,rgba(255,61,141,.35),transparent 23%),radial-gradient(circle at 84% 18%,rgba(30,167,255,.35),transparent 24%),linear-gradient(180deg,#0b2e73 0%,#071a52 48%,#071336 100%)}
 .wrap{width:min(1180px,96vw);margin:0 auto;padding:18px 0 28px}.top{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}.titlebox{background:linear-gradient(90deg,var(--yellow),#ff9d1d);color:var(--navy);border:5px solid #fff;box-shadow:0 10px 0 rgba(0,0,0,.25);border-radius:24px;padding:10px 20px}.titlebox h1{margin:0;font-size:clamp(30px,5vw,66px);line-height:.95;text-transform:uppercase;letter-spacing:-2px}.titlebox h2{margin:7px 0 0;font-size:clamp(16px,2vw,28px);color:#9d154d}.hud{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.pill{background:#0e2d72;border:3px solid #fff;border-radius:18px;padding:10px 14px;font-weight:800;font-size:18px;box-shadow:0 6px 0 rgba(0,0,0,.22)}.pill span{color:var(--yellow)}
-.panel{margin-top:18px;background:rgba(255,255,255,.10);border:3px solid rgba(255,255,255,.8);border-radius:26px;padding:16px;box-shadow:0 16px 35px rgba(0,0,0,.28);backdrop-filter:blur(7px)}.question{background:#091a4a;border:4px solid #7ad7ff;border-radius:18px;padding:14px 18px;font-size:clamp(22px,3vw,36px);font-weight:900;text-align:center;min-height:96px;display:grid;place-items:center}.progress{height:12px;background:rgba(255,255,255,.2);border-radius:10px;margin-top:10px;overflow:hidden}#bar{height:100%;width:100%;background:linear-gradient(90deg,#4cf58a,#ffd23f,#ff4d4d);transition:width .2s linear}
+.panel{margin-top:18px;background:rgba(255,255,255,.10);border:3px solid rgba(255,255,255,.8);border-radius:26px;padding:16px;box-shadow:0 16px 35px rgba(0,0,0,.28);backdrop-filter:blur(7px)}.question{background:#091a4a;border:4px solid #7ad7ff;border-radius:18px;padding:14px 18px;font-size:clamp(22px,3vw,36px);font-weight:900;text-align:center;min-height:96px;display:grid;place-items:center}.music-active{background:#bdf7d7!important;color:#084b35!important}
 .arena{position:relative;margin-top:16px;min-height:420px;border-radius:22px;overflow:hidden;background:linear-gradient(rgba(6,23,62,.08),rgba(6,23,62,.18)),linear-gradient(180deg,#2c87df 0 28%,#6bc9ff 28% 49%,#153c83 49% 100%);border:4px solid #fff}.monsters{position:absolute;inset:78px 18px 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:end}.monster{position:relative;min-height:260px;border-radius:44% 44% 28% 28%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:6px solid rgba(255,255,255,.92);box-shadow:0 14px 0 rgba(0,0,0,.28),0 0 32px rgba(255,255,255,.18);cursor:pointer;user-select:none;transition:transform .12s ease}.monster:hover{transform:translateY(-8px) scale(1.02)}.monster.hit{animation:hit .35s ease}@keyframes hit{0%{transform:scale(1)}45%{transform:scale(.82) rotate(-5deg);filter:brightness(1.8)}100%{transform:scale(1)}}.monster .face{font-size:86px}.monster .answer{margin-top:10px;background:#fff;color:var(--ink);font-weight:900;border-radius:16px;padding:10px 14px;width:88%;text-align:center;font-size:clamp(18px,2vw,27px);border:3px solid rgba(0,0,0,.08)}.monster:nth-child(1){background:linear-gradient(#c86cff,#6d35d4)}.monster:nth-child(2){background:linear-gradient(#ff6969,#d92424)}.monster:nth-child(3){background:linear-gradient(#55de78,#139b45)}
 .feedback{position:absolute;inset:0;display:none;place-items:center;z-index:10;background:rgba(4,13,38,.62);font-size:clamp(40px,7vw,90px);font-weight:900;text-align:center}.feedback.show{display:grid}.tips{margin-top:14px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;font-size:16px;font-weight:700;color:#e9f7ff;text-align:center}button{border:0;border-radius:14px;padding:11px 16px;font-weight:900;font-size:16px;cursor:pointer}.primary{background:var(--yellow);color:#10233f}.secondary{background:#fff;color:#10233f}.small{font-size:14px;color:#d7ebff}
 #videoBox{position:fixed;right:16px;bottom:16px;width:220px;height:155px;border:4px solid #fff;border-radius:20px;overflow:hidden;background:#071a52;z-index:20;display:none;box-shadow:0 12px 30px rgba(0,0,0,.35)}#webcam{width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}#fistCursor{position:fixed;width:76px;height:76px;z-index:30;pointer-events:none;display:none;transform:translate(-50%,-50%);font-size:62px;line-height:76px;text-align:center}
@@ -20,11 +20,11 @@
 </head>
 <body>
 <div class="wrap">
-<div class="top"><div class="titlebox"><h1>Monster Punch</h1><h2>Sejarah Tahun 5 • Peranan Bahasa Melayu Dahulu dan Kini</h2></div><div class="hud"><div class="pill">Soalan <span id="qNo">1/10</span></div><div class="pill">Skor <span id="score">0</span></div><div class="pill">Nyawa <span id="lives">❤️❤️❤️</span></div><div class="pill">Masa <span id="time">25</span>s</div></div></div>
-<div class="panel"><div class="question" id="question">Soalan akan muncul di sini.</div><div class="progress"><div id="bar"></div></div><div class="arena" id="arena"><div class="feedback" id="feedback"></div><div class="monsters"><div class="monster" data-i="0"><div class="face">👾</div><div class="answer"></div></div><div class="monster" data-i="1"><div class="face">👹</div><div class="answer"></div></div><div class="monster" data-i="2"><div class="face">👿</div><div class="answer"></div></div></div></div><div class="tips"><button class="primary" id="camBtn">📷 Aktifkan Mod Tumbuk</button><button class="secondary" id="nextBtn">⏭ Soalan Seterusnya</button><span>Tanpa kamera: klik monster jawapan yang betul.</span></div><p class="small">Mod kamera menggunakan MediaPipe melalui internet. Jika kamera tidak dibenarkan, permainan masih boleh dimainkan dengan klik/touch.</p></div>
+<div class="top"><div class="titlebox"><h1>Monster Punch</h1><h2>Sejarah Tahun 5 • Peranan Bahasa Melayu Dahulu dan Kini</h2></div><div class="hud"><div class="pill">Soalan <span id="qNo">1/10</span></div><div class="pill">Skor <span id="score">0</span></div><div class="pill">Nyawa <span id="lives">❤️❤️❤️</span></div></div></div>
+<div class="panel"><div class="question" id="question">Soalan akan muncul di sini.</div><div class="arena" id="arena"><div class="feedback" id="feedback"></div><div class="monsters"><div class="monster" data-i="0"><div class="face">👾</div><div class="answer"></div></div><div class="monster" data-i="1"><div class="face">👹</div><div class="answer"></div></div><div class="monster" data-i="2"><div class="face">👿</div><div class="answer"></div></div></div></div><div class="tips"><button class="primary" id="camBtn">📷 Aktifkan Mod Tumbuk</button><button class="secondary" id="musicBtn" type="button" aria-pressed="false" title="Hidupkan atau matikan muzik latar">🔇 Muzik: Mati</button><button class="secondary" id="nextBtn">⏭ Soalan Seterusnya</button><span>Tanpa kamera: klik monster jawapan yang betul.</span></div><p class="small">Mod kamera menggunakan MediaPipe melalui internet. Jika kamera tidak dibenarkan, permainan masih boleh dimainkan dengan klik/touch.</p></div>
 </div>
 <div id="videoBox"><video id="webcam" autoplay muted playsinline></video></div><div id="fistCursor">✊</div>
-<div class="overlay" id="startOverlay"><div class="card"><h3>👊 Monster Punch!</h3><p>Tumbuk monster yang membawa jawapan betul.</p><div class="code">Ingat kod: <b>RAJA ADA 6 PISANG EMAS</b><br>R = Rasmi • 6P • E = Ekonomi</div><p><b>6P:</b> Pentadbiran, Pendidikan, Persuratan, Perundangan, Perhubungan, Perpaduan</p><p>Setiap soalan diberi <b>25 saat</b> dan anda ada <b>3 nyawa</b>.</p><div class="btnrow"><button class="primary" id="startBtn">▶ Mula Permainan</button><button class="secondary" id="startCamBtn">📷 Mula + Kamera</button></div></div></div>
+<div class="overlay" id="startOverlay"><div class="card"><h3>👊 Monster Punch!</h3><p>Tumbuk monster yang membawa jawapan betul.</p><div class="code">Ingat kod: <b>RAJA ADA 6 PISANG EMAS</b><br>R = Rasmi • 6P • E = Ekonomi</div><p><b>6P:</b> Pentadbiran, Pendidikan, Persuratan, Perundangan, Perhubungan, Perpaduan</p><p>Tiada had masa! Fikir dahulu sebelum menjawab. Anda mempunyai <b>3 nyawa</b>.</p><div class="btnrow"><button class="primary" id="startBtn">▶ Mula Permainan</button><button class="secondary" id="startCamBtn">📷 Mula + Kamera</button></div></div></div>
 <script>
 const questions=[
 {q:"Pada zaman dahulu, Bahasa Melayu digunakan dalam sistem pentadbiran kerajaan yang mana?",a:["Kesultanan Melayu Melaka","Kerajaan Rom","Kerajaan Mesir"],c:0},
@@ -38,17 +38,97 @@ const questions=[
 {q:"Kini, Bahasa Melayu digunakan sebagai bahasa perhubungan antara siapa?",a:["Masyarakat dan serantau","Raja sahaja","Pedagang sahaja"],c:0},
 {q:"Pada zaman dahulu, golongan ulama menyampaikan ilmu agama kepada raja-raja Melayu menggunakan Bahasa Melayu. Apakah peranannya?",a:["Pendidikan","Ekonomi","Perundangan"],c:0}
 ];
-let idx=0,score=0,lives=3,timeLeft=25,timer=null,locked=false,camera=null,camOn=false,lastHit=0,active=null;
-const qEl=document.getElementById('question'),qNo=document.getElementById('qNo'),scoreEl=document.getElementById('score'),livesEl=document.getElementById('lives'),timeEl=document.getElementById('time'),feedback=document.getElementById('feedback'),bar=document.getElementById('bar'),monsters=[...document.querySelectorAll('.monster')];
+let idx=0,score=0,lives=3,locked=false,camera=null,camOn=false,lastHit=0,active=null;
+const qEl=document.getElementById('question'),qNo=document.getElementById('qNo'),scoreEl=document.getElementById('score'),livesEl=document.getElementById('lives'),feedback=document.getElementById('feedback'),monsters=[...document.querySelectorAll('.monster')];
 function shuffleQuestion(q){const items=q.a.map((t,i)=>({t,correct:i===q.c}));for(let i=items.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[items[i],items[j]]=[items[j],items[i]];}return{q:q.q,items};}
-function updateHUD(){scoreEl.textContent=score;livesEl.textContent='❤️'.repeat(Math.max(lives,0))+'🖤'.repeat(Math.max(0,3-lives));timeEl.textContent=timeLeft;bar.style.width=(timeLeft/25*100)+'%';}
-function loadQuestion(){if(idx>=questions.length)return endGame();locked=false;active=shuffleQuestion(questions[idx]);qEl.textContent=active.q;qNo.textContent=`${idx+1}/${questions.length}`;monsters.forEach((m,i)=>{m.querySelector('.answer').textContent=active.items[i].t;m.classList.remove('hit');});timeLeft=25;updateHUD();clearInterval(timer);timer=setInterval(()=>{timeLeft--;updateHUD();if(timeLeft<=0){clearInterval(timer);wrong('⏰ Masa tamat!');}},1000);}
+function updateHUD(){scoreEl.textContent=score;livesEl.textContent='❤️'.repeat(Math.max(lives,0))+'🖤'.repeat(Math.max(0,3-lives));}
+function loadQuestion(){if(idx>=questions.length)return endGame();locked=false;active=shuffleQuestion(questions[idx]);qEl.textContent=active.q;qNo.textContent=`${idx+1}/${questions.length}`;monsters.forEach((m,i)=>{m.querySelector('.answer').textContent=active.items[i].t;m.classList.remove('hit');});updateHUD();}
 function showFeedback(t){feedback.textContent=t;feedback.classList.add('show');setTimeout(()=>feedback.classList.remove('show'),900);}
-function answer(i){if(locked)return;locked=true;clearInterval(timer);monsters[i].classList.add('hit');if(active.items[i].correct){const add=10+Math.max(0,timeLeft);score+=add;showFeedback('✅ BETUL! +'+add);updateHUD();setTimeout(()=>{idx++;loadQuestion()},1000);}else wrong('❌ Cuba lagi!');}
+function answer(i){if(locked)return;locked=true;monsters[i].classList.add('hit');if(active.items[i].correct){const add=20;playEffect(true);score+=add;showFeedback('✅ BETUL! +'+add);updateHUD();setTimeout(()=>{idx++;loadQuestion()},1000);}else{playEffect(false);wrong('❌ Cuba lagi!');}}
 function wrong(msg){lives--;updateHUD();showFeedback(msg);if(lives<=0)setTimeout(endGame,1100);else setTimeout(()=>{locked=false;loadQuestion()},1100);}
-function endGame(){clearInterval(timer);locked=true;feedback.innerHTML=`🏆 Tamat!<br>Skor: ${score}`;feedback.classList.add('show');qEl.textContent=score>=220?'Hebat! Kamu sudah menguasai peranan Bahasa Melayu.':'Bagus! Cuba lagi untuk tingkatkan skor.';}
+function endGame(){locked=true;feedback.innerHTML=`🏆 Tamat!<br>Skor: ${score}`;feedback.classList.add('show');qEl.textContent=score>=160?'Hebat! Kamu sudah menguasai peranan Bahasa Melayu.':'Bagus! Cuba lagi untuk tingkatkan skor.';}
 function restart(){idx=0;score=0;lives=3;feedback.classList.remove('show');loadQuestion();}
-monsters.forEach((m,i)=>m.addEventListener('click',()=>answer(i)));document.getElementById('nextBtn').onclick=()=>{if(!locked){clearInterval(timer);idx++;loadQuestion();}};document.getElementById('startBtn').onclick=()=>{document.getElementById('startOverlay').style.display='none';restart();};document.getElementById('startCamBtn').onclick=async()=>{document.getElementById('startOverlay').style.display='none';restart();await enableCamera();};document.getElementById('camBtn').onclick=enableCamera;
+monsters.forEach((m,i)=>m.addEventListener('click',()=>answer(i)));document.getElementById('nextBtn').onclick=()=>{if(!locked){idx++;loadQuestion();}};document.getElementById('startBtn').onclick=()=>{document.getElementById('startOverlay').style.display='none';restart();startMusic();};document.getElementById('startCamBtn').onclick=async()=>{document.getElementById('startOverlay').style.display='none';restart();startMusic();await enableCamera();};document.getElementById('camBtn').onclick=enableCamera;
+
+/* Muzik arked ceria dijana dalam pelayar: tiada fail audio luar diperlukan. */
+let audioCtx=null,musicVolume=null,musicOn=false,musicTick=null,musicStep=0,nextMusicTime=0;
+const musicBtn=document.getElementById('musicBtn');
+const tune=[76,null,79,81,83,null,81,79,76,79,81,null,79,76,74,null,
+  76,null,79,83,84,null,83,81,79,76,74,76,79,null,76,null];
+const chords=[[60,64,67],[57,60,64],[62,65,69],[59,62,67]];
+function initMusic(){
+  if(audioCtx)return true;
+  const Ctx=window.AudioContext||window.webkitAudioContext;
+  if(!Ctx){musicBtn.textContent='🔇 Audio tidak disokong';musicBtn.disabled=true;return false;}
+  try{
+    audioCtx=new Ctx();
+    musicVolume=audioCtx.createGain();
+    musicVolume.gain.value=0;
+    musicVolume.connect(audioCtx.destination);
+    return true;
+  }catch(e){musicBtn.textContent='🔇 Audio tidak tersedia';musicBtn.disabled=true;return false;}
+}
+function note(midi,at,duration,level=0.08,wave='square'){
+  if(!audioCtx||!musicVolume)return;
+  const osc=audioCtx.createOscillator(),env=audioCtx.createGain();
+  osc.type=wave;
+  osc.frequency.setValueAtTime(440*Math.pow(2,(midi-69)/12),at);
+  env.gain.setValueAtTime(0.0001,at);
+  env.gain.exponentialRampToValueAtTime(Math.max(0.0002,level),at+0.012);
+  env.gain.exponentialRampToValueAtTime(0.0001,at+duration);
+  osc.connect(env);env.connect(musicVolume);
+  osc.start(at);osc.stop(at+duration+0.02);
+}
+function scheduleMusic(){
+  if(!musicOn||!audioCtx||audioCtx.state!=='running')return;
+  const stepSeconds=60/132/2;
+  if(nextMusicTime<audioCtx.currentTime-0.3)nextMusicTime=audioCtx.currentTime+0.03;
+  while(nextMusicTime<audioCtx.currentTime+0.18){
+    const step=musicStep%32,section=Math.floor((musicStep%64)/16);
+    if(tune[step]!==null)note(tune[step],nextMusicTime,stepSeconds*0.76,0.055,'square');
+    if(step%4===0)note([48,45,50,43][section],nextMusicTime,stepSeconds*2.3,0.075,'triangle');
+    if(step%8===0)chords[section].forEach((n,i)=>note(n,nextMusicTime+i*0.006,stepSeconds*3.3,0.018,'sine'));
+    if(step%4===0)note(36,nextMusicTime,0.09,0.032,'sine');
+    if(step%2===0)note(88,nextMusicTime,0.035,0.012,'triangle');
+    musicStep++;nextMusicTime+=stepSeconds;
+  }
+}
+function setMusicButton(){
+  musicBtn.textContent=musicOn?'🔊 Muzik: Hidup':'🔇 Muzik: Mati';
+  musicBtn.classList.toggle('music-active',musicOn);
+  musicBtn.setAttribute('aria-pressed',String(musicOn));
+}
+function startMusic(){
+  if(musicOn||!initMusic())return;
+  musicOn=true;setMusicButton();
+  musicVolume.gain.cancelScheduledValues(audioCtx.currentTime);
+  musicVolume.gain.setTargetAtTime(0.22,audioCtx.currentTime,0.06);
+  nextMusicTime=audioCtx.currentTime+0.08;
+  audioCtx.resume().catch(()=>{});
+  scheduleMusic();
+  if(musicTick===null)musicTick=setInterval(scheduleMusic,80);
+}
+function stopMusic(){
+  musicOn=false;setMusicButton();
+  if(musicTick!==null){clearInterval(musicTick);musicTick=null;}
+  if(audioCtx&&musicVolume){
+    musicVolume.gain.cancelScheduledValues(audioCtx.currentTime);
+    musicVolume.gain.setTargetAtTime(0.0001,audioCtx.currentTime,0.04);
+  }
+}
+musicBtn.addEventListener('click',()=>musicOn?stopMusic():startMusic());
+document.addEventListener('visibilitychange',()=>{
+  if(!audioCtx)return;
+  if(document.hidden)audioCtx.suspend().catch(()=>{});
+  else if(musicOn)audioCtx.resume().catch(()=>{});
+});
+function playEffect(correct){
+  if(!musicOn||!audioCtx||audioCtx.state!=='running')return;
+  const t=audioCtx.currentTime+0.01;
+  if(correct){[79,83,88].forEach((n,i)=>note(n,t+i*0.08,0.18,0.10,'sine'));}
+  else{[63,57].forEach((n,i)=>note(n,t+i*0.12,0.17,0.09,'sawtooth'));}
+}
+
 function dist(a,b){return Math.hypot(a.x-b.x,a.y-b.y)}function isFist(lm){const wrist=lm[0],tips=[8,12,16,20],mcps=[5,9,13,17];let folded=0;for(let k=0;k<4;k++){if(dist(lm[tips[k]],wrist)<dist(lm[mcps[k]],wrist)*1.35)folded++;}return folded>=3;}
 async function enableCamera(){if(camOn)return;const video=document.getElementById('webcam'),box=document.getElementById('videoBox'),cursor=document.getElementById('fistCursor');try{const hands=new Hands({locateFile:file=>`https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`});hands.setOptions({maxNumHands:1,modelComplexity:1,minDetectionConfidence:.6,minTrackingConfidence:.6});hands.onResults(results=>{if(!results.multiHandLandmarks||!results.multiHandLandmarks.length){cursor.style.display='none';return;}const lm=results.multiHandLandmarks[0],palm=lm[9],x=(1-palm.x)*window.innerWidth,y=palm.y*window.innerHeight;cursor.style.display='block';cursor.style.left=x+'px';cursor.style.top=y+'px';const fist=isFist(lm);cursor.textContent=fist?'👊':'🖐️';if(fist&&Date.now()-lastHit>800&&!locked){const el=document.elementFromPoint(x,y),mon=el&&el.closest?el.closest('.monster'):null;if(mon){lastHit=Date.now();answer(Number(mon.dataset.i));}}});camera=new Camera(video,{onFrame:async()=>{await hands.send({image:video})},width:640,height:480});await camera.start();camOn=true;box.style.display='block';cursor.style.display='block';document.getElementById('camBtn').textContent='✅ Mod Tumbuk Aktif';}catch(e){alert('Kamera tidak dapat diaktifkan. Benarkan akses kamera atau gunakan klik/touch sebagai alternatif.');}}
 </script>
